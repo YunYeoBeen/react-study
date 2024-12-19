@@ -1,0 +1,27 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header 스타일 */
+.header {
+  display: flex;
+  align-items: center;
+  background: #001529;
+  padding: 0 20px; /* 좌우 패딩 추가 */
+}
+
+/* Logo 스타일 */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-right: 50px; /* LOGO와 메뉴 간의 간격 */
+}
+
+/* Menu 스타일 */
+.menu {
+  flex: 1; /* 남은 공간 차지 */
+}
