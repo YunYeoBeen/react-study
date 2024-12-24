@@ -19,7 +19,7 @@ const BoardPage: React.FC = () => {
   // 서버에서 데이터 가져오기
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/board"); // API 엔드포인트
+      const response = await axios.get("http://localhost:8080/api/v1/board"); // API 엔드포인트
       const data = response.data.map((item: any, index: number) => ({
         key: index.toString(),
         title: item.title,

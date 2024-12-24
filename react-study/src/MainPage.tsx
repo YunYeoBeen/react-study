@@ -1,14 +1,16 @@
 import React from "react";
-import { Layout, Menu, Breadcrumb, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { Layout, Menu, Breadcrumb, Typography, Button } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
 
 const MainPage: React.FC = () => {
+  const navigate = useNavigate(); // React Router의 navigate hook
+
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Header className="header">
+      <Header className="header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         {/* Logo */}
         <div className="logo">My App</div>
         {/* Menu */}
@@ -23,6 +25,10 @@ const MainPage: React.FC = () => {
             <Link to="/contact">Contact</Link>
           </Menu.Item>
         </Menu>
+        {/* Login Button */}
+        <Button type="primary" onClick={() => navigate("/login")}>
+          Login
+        </Button>
       </Header>
       <Layout>
         <Content style={{ padding: "24px" }}>
