@@ -1,48 +1,46 @@
 import React from "react";
-import { Layout, Menu, Breadcrumb, Typography, Button } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { Layout, Button } from "antd";
+import { useUser } from "./UserContext";
 
 const { Header, Content, Footer } = Layout;
-const { Title, Paragraph } = Typography;
 
 const MainPage: React.FC = () => {
-  const navigate = useNavigate(); // React Router의 navigate hook
+  const { user } = useUser();
+
+  const redirectToKakaoLogin = () => {
+    const clientId = "6f47201bc042699a7bffec10c96e3327"; // Kakao REST API 키
+    const redirectUri = "http://localhost:5173/login/oauth2/code/kakao"; // 프론트엔드 콜백 URI
+    const kakaoAuthUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`;
+
+    // 카카오 로그인 페이지로 이동
+    window.location.href = kakaoAuthUrl;
+  };
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Header className="header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        {/* Logo */}
-        <div className="logo">My App</div>
-        {/* Menu */}
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]} className="menu">
-          <Menu.Item key="1">
-            <Link to="/board">게시판</Link>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Link to="/about">About</Link>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Link to="/contact">Contact</Link>
-          </Menu.Item>
-        </Menu>
-        {/* Login Button */}
-        <Button type="primary" onClick={() => navigate("/login")}>
-          Login
-        </Button>
+      <Header
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          backgroundColor: "#001529",
+          color: "#fff",
+        }}
+      >
+        <div style={{ color: "#fff", fontSize: "18px" }}>My App</div>
+        {user ? (
+          <div style={{ color: "#fff" }}>환영합니다, {user.nickName}님!</div>
+        ) : (
+          <Button type="primary" onClick={redirectToKakaoLogin}>
+            로그인
+          </Button>
+        )}
       </Header>
-      <Layout>
-        <Content style={{ padding: "24px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>Main</Breadcrumb.Item>
-          </Breadcrumb>
-          <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
-            <Title level={2}>Welcome to My App</Title>
-            <Paragraph>Click "게시판" to visit the board page.</Paragraph>
-          </div>
-        </Content>
-      </Layout>
-      <Footer style={{ textAlign: "center" }}>©2024 My App. All Rights Reserved.</Footer>
+      <Content style={{ padding: "50px", textAlign: "center" }}>
+        <h1>Welcome to My App</h1>
+        <p>Ant Design과 Context를 사용한 데모 페이지입니다.</p>
+      </Content>
+      <Footer style={{ textAlign: "center" }}>©2024 My App</Footer>
     </Layout>
   );
 };
