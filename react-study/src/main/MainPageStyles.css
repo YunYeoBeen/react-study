@@ -1,0 +1,66 @@
+/* 레이아웃 전체 스타일 */
+.main-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 헤더 스타일 */
+.main-header {
+  display: flex;
+  justify-content: space-between; /* 좌우 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  background-color: #001529;
+  color: #fff;
+  padding: 0 16px; /* 좌우 패딩 */
+  height: 64px; /* 고정 높이 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* 그림자 추가 */
+  z-index: 1;
+  position: sticky;
+  top: 0;
+}
+
+/* 로고 텍스트 */
+.main-logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* 사용자 섹션 스타일 */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* 닉네임과 버튼 사이 간격 */
+}
+
+.user-nickname {
+  font-size: 16px;
+  color: #fff;
+}
+
+/* 메인 컨텐츠 스타일 */
+.main-content {
+  padding: 24px 50px;
+  text-align: center;
+  flex: 1;
+  background-color: #f0f2f5; /* 연한 배경 */
+}
+
+.calendar-container {
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 16px;
+}
+
+/* 푸터 스타일 */
+.main-footer {
+  text-align: center;
+  padding: 12px;
+  background-color: #f0f2f5;
+  border-top: 1px solid #e8e8e8;
+}

@@ -1,0 +1,32 @@
+.login-layout {
+    min-height: 100vh;
+  }
+  
+  .login-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #001529;
+    color: #fff;
+    padding: 0 16px;
+  }
+  
+  .login-logo {
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  .login-content {
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .login-footer {
+    text-align: center;
+  }
+  
+  .modal-content {
+    width: 100%;
+    text-align: center;
+  }
+  
